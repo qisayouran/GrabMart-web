@@ -1,0 +1,13 @@
+<template>
+  <div>
+    <el-container>
+      <el-header></el-header>
+    </el-container>
+  </div>
+</template>
+
+<script>
+export default {}
+</script>
+
+<style></style>
