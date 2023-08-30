@@ -60,7 +60,7 @@ export default {
         if (valid) {
           userApi.loginApi(this.ruleForm).then((res) => {
             if (res) {
-              localStorage.setItem('token', btoa(res.data.token))
+              localStorage.setItem('token', res.data.token)
               this.$message.success('登录成功')
               router.push('/user')
             }

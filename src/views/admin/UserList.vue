@@ -1,5 +1,26 @@
 <template>
   <div>
+    <el-row :gutter="10" type="flex" justify="space-around">
+      <el-col class="input" :xs="4" :sm="6" :md="8" :lg="6" :xl="11">
+        <span>用户名</span>
+        <el-input v-model="username"></el-input>
+      </el-col>
+      <el-col class="input" :xs="4" :sm="6" :md="8" :lg="6" :xl="11">
+        <span>用户类型</span>
+        <el-select v-model="type">
+          <el-option
+            v-for="(item, index) in roleList"
+            :value="item.roleId"
+            :label="item.name"
+            :key="index"
+          >
+          </el-option>
+        </el-select>
+      </el-col>
+      <el-col :span="6" style="display: flex; justify-content: center; align-items: center">
+        <el-button type="primary" size="medium" @click="filter">筛选</el-button>
+      </el-col>
+    </el-row>
     <el-table :data="userList">
       <el-table-column label="用户id" prop="id"> </el-table-column>
       <el-table-column label="用户名" prop="username"> </el-table-column>
@@ -11,22 +32,53 @@
 </template>
 
 <script>
-import { admimApi } from '@/api/admin'
+import { adminApi } from '@/api/admin'
 
 export default {
   data() {
     return {
+      username: '',
+      type: '',
+      roleList: [],
       userList: []
     }
   },
   mounted() {
-    admimApi.userListApi().then((res) => {
-      if (res != null) {
-        this.userList = res.data.list
-      }
-    })
+    this.load()
+    this.loadUser(this.username, this.type)
+  },
+  methods: {
+    filter() {
+      this.loadUser(this.username, this.type)
+    },
+    load() {
+      adminApi.roleListApi().then((res) => {
+        if (res) {
+          this.roleList = res.data
+          this.roleList.unshift({ roleId: '', name: '全部' })
+        }
+      })
+    },
+    loadUser(username, type) {
+      adminApi.userListApi(username, type).then((res) => {
+        if (res) {
+          this.userList = res.data.list
+        }
+      })
+    }
   }
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.row {
+  margin-bottom: 10px;
+}
+.input {
+  display: flex;
+  flex-direction: column;
+  span {
+    margin-bottom: 5px;
+  }
+}
+</style>

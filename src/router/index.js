@@ -31,6 +31,21 @@ const routes = [
         path: 'users',
         name: 'userlist',
         component: () => import('@/views/admin/UserList.vue')
+      },
+      {
+        path: 'manage/role',
+        name: 'roleManage',
+        component: () => import('@/views/admin/RoleManage.vue')
+      },
+      {
+        path: 'manage/permissions',
+        name: 'permissionsManage',
+        component: () => import('@/views/admin/PermissionsManage.vue')
+      },
+      {
+        path: 'manage/product',
+        name: 'productManage',
+        component: () => import('@/views/admin/ProductManage.vue')
       }
     ]
   },

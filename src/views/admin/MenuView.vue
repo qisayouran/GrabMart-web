@@ -20,8 +20,9 @@
         </el-submenu>
       </el-submenu>
       <el-menu-item index="/admin/users">用户列表</el-menu-item>
-      <el-menu-item index="/admin/1">商家列表</el-menu-item>
-      <el-menu-item index="/admin/">主页</el-menu-item>
+      <el-menu-item index="/admin/manage/role">角色管理</el-menu-item>
+      <el-menu-item index="/admin/manage/permissions">权限管理</el-menu-item>
+      <el-menu-item index="/admin/manage/product">商品管理</el-menu-item>
     </el-menu>
     <el-button @click="test"></el-button>
   </div>
