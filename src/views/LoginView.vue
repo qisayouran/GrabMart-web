@@ -61,6 +61,7 @@ export default {
           userApi.loginApi(this.ruleForm).then((res) => {
             if (res) {
               localStorage.setItem('token', btoa(res.data.token))
+              this.$message.success('登录成功')
               router.push('/user')
             }
           })

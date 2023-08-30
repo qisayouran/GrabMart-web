@@ -21,8 +21,18 @@ const routes = [
   },
   {
     path: '/admin',
-    name: 'admin',
-    component: () => import('@/views/layout/AdminView.vue')
+    component: () => import('@/views/layout/AdminView.vue'),
+    children: [
+      {
+        path: '',
+        component: () => import('@/views/admin/IndexView.vue')
+      },
+      {
+        path: 'users',
+        name: 'userlist',
+        component: () => import('@/views/admin/UserList.vue')
+      }
+    ]
   },
   {
     path: '/login',

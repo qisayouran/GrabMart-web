@@ -38,7 +38,7 @@ service.interceptors.response.use(
       }
     }
     if ([401, 403].includes(status)) {
-      router.push('/')
+      router.push('/login')
     }
     Message({
       type: 'error',
