@@ -23,6 +23,7 @@
       <el-menu-item index="/admin/manage/role">角色管理</el-menu-item>
       <el-menu-item index="/admin/manage/permissions">权限管理</el-menu-item>
       <el-menu-item index="/admin/manage/product">商品管理</el-menu-item>
+      <el-menu-item index="/admin/manage/order">订单管理</el-menu-item>
     </el-menu>
     <el-button @click="test"></el-button>
   </div>

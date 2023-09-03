@@ -27,6 +27,10 @@
       <el-table-column label="昵称" prop="nikeName"> </el-table-column>
       <el-table-column label="创建时间" width="150" prop="createTime"> </el-table-column>
       <el-table-column label="最近登录" width="150" prop="loginTime"> </el-table-column>
+      <el-table-column label="管理" width="120" fixed="right">
+        <el-button>详细</el-button>
+        <el-button type="text" size="small">编辑</el-button>
+      </el-table-column>
     </el-table>
   </div>
 </template>

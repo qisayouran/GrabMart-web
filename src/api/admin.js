@@ -6,5 +6,17 @@ export const adminApi = {
   },
   roleListApi() {
     return http.get('/role')
+  },
+  permissionsList() {
+    return http.get('/permissions')
+  },
+  addPermissionsApi(data) {
+    return http.post('/permissions', data)
+  },
+  deletePermissionsApi(id) {
+    return http.delte(`/permissions/${id}`)
+  },
+  updatePermissionsApi(data) {
+    return http.put('/permissions', data)
   }
 }

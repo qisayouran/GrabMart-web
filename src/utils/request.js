@@ -37,6 +37,9 @@ service.interceptors.response.use(
         message = error.response.data.msg
       }
     }
+    if (status === 400) {
+      message = '错误的请求'
+    }
     if ([401, 403].includes(status)) {
       router.push('/login')
     }
