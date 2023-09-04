@@ -18,5 +18,14 @@ export const adminApi = {
   },
   updatePermissionsApi(data) {
     return http.put('/permissions', data)
+  },
+  rolePermissionsApi(id) {
+    return http.get(`/role-permissions/${id}`)
+  },
+  batchInsertRolePermissions(data) {
+    return http.post('/role-permissions/batches', data)
+  },
+  batchDeleteRolePermissions(data) {
+    return http.delte('/role-permissions/batches', data)
   }
 }

@@ -118,10 +118,14 @@ export default {
           }
         })
       } else {
-        adminApi.PermissionsApi(this.permissionsFrom).then((res) => {
+        adminApi.addPermissionsApi(this.permissionsFrom).then((res) => {
           if (res) {
-            this.$message.success('新增成功')
-            this.load()
+            if (res.data) {
+              this.$message.success(res.msg)
+              this.load()
+            } else {
+              this.$message.error(res.msg)
+            }
             this.PermissionsDialog = false
           }
         })
